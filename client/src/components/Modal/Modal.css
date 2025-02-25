@@ -1,0 +1,20 @@
+.modal {
+  display: flex;
+  position: absolute;
+  top: 10rem;
+  left: 2rem;
+  z-index: 10;
+  flex-direction: column;
+  border: solid 1px black;
+  border-radius: 1rem;
+  padding: 2rem;
+  background-color: white;
+  width: 70%;
+  height: 50%;
+
+  .modal-close {
+    width: 3rem;
+    cursor: pointer;
+    align-self: right;
+  }
+}

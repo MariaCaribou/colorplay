@@ -1,0 +1,13 @@
+.side-button {
+  padding: 0.6rem;
+  border: none;
+  background-color: #F2E9E4; // TODO set variable colors
+}
+
+.side-button--left {
+  border-radius: 3rem 1rem 1rem 3rem;
+}
+
+.side-button--right {
+  border-radius: 1rem 3rem 3rem 1rem;
+}

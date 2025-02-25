@@ -1,0 +1,14 @@
+.button {
+  padding: 1rem 5rem;
+  border: none;
+  border-radius: 1rem;
+  color: white;
+  font-size: 2rem;
+  transition: background-color 0.5s ease-in-out;
+}
+
+.color1 { background-color: #e86d5f; } /* Rojo */
+.color2 { background-color: #2ecc71; } /* Verde */
+.color3 { background-color: #f1c40f; } /* Amarillo */
+.color4 { background-color: #9b59b6; } /* Morado */
+.color5 { background-color: #1abc9c; } /* Turquesa */
