@@ -3,7 +3,7 @@ import { SideButton } from "../../components/SideButton/SideButton";
 
 import "./PalettePage.css";
 import { Button } from "../../components/Button/Button";
-import { Modal } from "../../components/Modal/Modal";
+import { StylesModal } from "../../components/StylesModal/StylesModal";
 
 const ITEMS = [
   'TOP',
@@ -45,16 +45,16 @@ export const PalettePage = () => {
       <h2 className="section-title">YOUR PALETTE</h2>
       <div className="palette">
         {PALETTE_ITEMS.map(item =>
-          <div className={`palette-item ${item}`}></div>
+          <div className={`palette-item ${item}`} key={item}></div>
         )}
       </div>
 
       <div className="button-wrapper">
-        <Button handleOnClick={openModal} color={"#9A8C98"} text={"Styles"}/>
+        <Button handleOnClick={openModal} color={"#9381FF"} text={"Styles"}/>
       </div>
       
       {isModalOpen &&
-        <Modal 
+        <StylesModal 
           title="Choose your style"
           content={STYLE_OPTIONS}
           onClose={closeModal}

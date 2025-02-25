@@ -9,13 +9,15 @@
     font-size: 1rem;
     font-weight: bold;
     letter-spacing: 3px;
+    font-family: "Inter", serif;
   }
 }
 
 .section-title {
   margin: 3rem 2rem;
   font-size: 2rem;
-  font-weight: 400;
+  font-weight: 500;
+  font-family: "Inter", serif;
 }
 
 .items {
@@ -38,6 +40,7 @@
   
     .item-text {
       font-size: 1.5rem;
+      font-family: "Inter", serif;
     }
   }
 }
@@ -59,13 +62,4 @@
   display: flex;
   justify-content: center;
   margin: 3rem 2rem;
-
-  .styles-button {
-    padding: 1rem 5rem;
-    border: none;
-    border-radius: 1rem;
-    color: white;
-    font-size: 2rem;
-    background-color: red;
-  }
 }

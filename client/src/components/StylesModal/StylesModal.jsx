@@ -2,24 +2,27 @@ import React from "react";
 import { RadioButton } from "../RadioButton/RadioButton";
 import { IoIosCloseCircleOutline } from "react-icons/io";
 
-import "./Modal.css";
+import "./StylesModal.css";
 
-
-export const Modal = ({
+export const StylesModal = ({
   title,
   content,
   onClose,
 }) => {
+  const onSubmit = () => {
+    console.log('submited');
+  };
 
   return (
     <div className="modal">
       <div className="modal-close" onClick={onClose}><IoIosCloseCircleOutline size={48} /></div>
       <h3 className="modal-title">{title}</h3>
-      <ul className="modal-content">
+      <form className="modal-content" action="">
         {content?.map(item => 
-          <RadioButton text={item}/>
+          <RadioButton value={item} key={item}/>
         )}
-      </ul>
+        <button className="modal-button" onClick={() => onSubmit()}>Accept</button>
+      </form>
     </div>
   )
 };

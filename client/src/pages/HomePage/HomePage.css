@@ -4,10 +4,12 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin: 2rem;
 
   .main__text {
     font-size: 2rem;
     text-align: center;
+    font-family: "Inter", serif;
   }
 }
 

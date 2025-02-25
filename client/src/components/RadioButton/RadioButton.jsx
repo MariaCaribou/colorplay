@@ -2,13 +2,12 @@ import React from "react";
 import "./RadioButton.css";
 
 export const RadioButton = ({
-  text,
+  value,
 }) => {
   return (
-    // TODO add radio button from react
     <div className="item">
-      <div className="item-button"></div>
-      <span className="item-text">{text}</span>  
+      <input className="item-button" type="radio" id={value} name="style" value={value}/>
+      <label htmlFor={value} className="item-text">{value}</label>  
     </div>
   )
 };
