@@ -1,26 +1,43 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { SideButton } from "../../components/SideButton/SideButton";
-
-import "./PalettePage.css";
 import { Button } from "../../components/Button/Button";
 import { StylesModal } from "../../components/StylesModal/StylesModal";
 
-const ITEMS = [
-  'TOP',
-  'BOTTOM',
-  'SHOES',
-  'ACCESORIES',
-];
+import "./PalettePage.css";
 
-const PALETTE_ITEMS = ['color1', 'color2', 'color3', 'color4', 'color5', 'color6'];
+import { fetchPalette } from "../../utils/api";
 
 const STYLE_OPTIONS = ['Contrast', 'Gradient', 'Eclectic', 'Pastel'];
+const ITEMS = [ 'TOP', 'BOTTOM', 'SHOES', 'ACCESORIES' ];
+const PALETTE_OBJECT = [
+  { hexValue: '#F5F5F5', associatedItem: ITEMS[0] },
+  { hexValue: '#EAEAEA', associatedItem: ITEMS[1] },
+  { hexValue: '#DADADA', associatedItem: ITEMS[2] },
+  { hexValue: '#CFCFCF', associatedItem: ITEMS[3] },
+  { hexValue: '#BFBFBF', associatedItem: '' },
+  { hexValue: '#B0B0B0', associatedItem: '' }
+];
 
 export const PalettePage = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [currentPalette, setCurrentPalette] = useState(PALETTE_OBJECT);
+
+  useEffect(() => {
+    retrievePalette();
+  }, []);
+
+  const retrievePalette = async() => {
+    const { palette } = await(fetchPalette());
+
+    const newPalette = currentPalette.map((color, index) => ({
+      ...color,
+      hexValue: palette[index]
+    }));
+
+    setCurrentPalette(newPalette);
+  };
 
   const openModal = () => setIsModalOpen(true);
-
   const closeModal = () => setIsModalOpen(false);
 
   return (
@@ -32,20 +49,25 @@ export const PalettePage = () => {
 
       <h2 className="section-title">SELECT BY ITEM</h2>
       <div className="items">
-        {ITEMS.map(item => (
-          <div className="item-row" key={item}>
-            <SideButton direction='left' icon='refresh'/>
-            <div className="item-color"></div>
-            <SideButton direction='right' icon='locked'/>
-            <span className="item-text">{item}</span>
-          </div>
-        ))}
+        {currentPalette?.map(color => {
+          if (color.associatedItem !== '') {
+            return (
+              <div className="item-row" key={color.hexValue}>
+                <SideButton direction='left' icon='refresh'/>
+                <div className="item-color" style={{backgroundColor: color.hexValue}}></div>
+                <SideButton direction='right' icon='locked'/>
+                <span className="item-text">{color.associatedItem}</span>
+              </div>
+            );
+            return null;
+          }
+        })}
       </div>
 
       <h2 className="section-title">YOUR PALETTE</h2>
       <div className="palette">
-        {PALETTE_ITEMS.map(item =>
-          <div className={`palette-item ${item}`} key={item}></div>
+        {currentPalette?.map(color =>
+          <div className="palette-item" style={{backgroundColor: color.hexValue}} key={color.hexValue}></div>
         )}
       </div>
 
