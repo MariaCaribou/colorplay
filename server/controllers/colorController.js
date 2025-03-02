@@ -1,6 +1,7 @@
 const colorModel = require('../models/colorModel');
 
-exports.get = (request, response) => {
-    const color = colorModel.find();
-    response.json({ color });
+exports.generatePalette = (request, response) => {
+    const { type, count } = request.body;
+    const palette = colorModel.generatePalette(type, count);
+    response.json({ palette });
 }

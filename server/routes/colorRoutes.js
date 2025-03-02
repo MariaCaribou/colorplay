@@ -2,7 +2,6 @@ const express = require('express');
 const router = express.Router();
 const colorController = require('../controllers/colorController');
 
-// GET the specified user
-router.get('/', colorController.get);
+router.post('/generatePalette', colorController.generatePalette);
 
 module.exports = router;
