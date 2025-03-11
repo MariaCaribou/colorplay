@@ -19,28 +19,23 @@
   flex-direction: column;
   /* border: solid 1px black; */
   border-radius: var(--border-radius-l);
-  padding: 2rem;
+  padding: 2.5rem 2rem;
   width: 66vw;
   height: 50vh;
   box-shadow: var(--material-shadow-3);
   z-index: 10;
 
-  .modal-close {
-    width: 3rem;
-    cursor: pointer;
-    margin-left: 15rem;
-  }
-
   .modal-title {
     font-size: 2rem;
     font-size: clamp(2rem, var(--font-size-m), 4rem);
-    margin-bottom: 1rem;
+    margin-bottom: 3.5rem;
+    font-weight: var(--font-weigth-medium);
   }
 
   .modal-content {
     display: flex;
     /* align-self: center; */
-    margin: 1rem;
+    /* margin: 1rem; */
     flex-direction: column;
     gap: 1.5rem;
   }

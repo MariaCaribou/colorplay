@@ -24,19 +24,29 @@ const PALETTE_OBJECT = [
 
 export const PalettePage = () => {
   const [currentPalette, setCurrentPalette] = useState(PALETTE_OBJECT);
-  const [isModalOpen, setIsModalOpen] = useState(false);
   const [currentStyle, setCurrentStyle] = useState(STYLE_OPTIONS[0]);
+  const [pickedColor, setPickedColor] = useState({ index: 0, hexValue: "", boundingRect: null });
+
+  // ==================================================
+  // Styles modal
+  // ==================================================
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const stylesModal = useRef();
+
+  const openModal = () => setIsModalOpen(true);
+  const closeModal = () => setIsModalOpen(false)
+
+  useClickOutside(stylesModal, closeModal);
+
+  // ==================================================
+  // Color picker
+  // ==================================================
   const [isColorPickerOpen, setIsColorPickerOpen] = useState(false);
-
-  const openColorPicker = () => {
-    setIsColorPickerOpen(true);
-  };
-
-  const closeColorPicker = useCallback(() => {
-    setIsColorPickerOpen(false)
-  }, []);
-  
   const colorPicker = useRef();
+
+  const openColorPicker = () => setIsColorPickerOpen(true);
+  const closeColorPicker = useCallback(() => setIsColorPickerOpen(false), []);
+  
   useClickOutside(colorPicker, closeColorPicker);
 
   // Refresh the palette when rendering this component for the first time.
@@ -44,6 +54,7 @@ export const PalettePage = () => {
     refreshPalette();
   }, []);
 
+  // Refresh the palette when the style changes.
   useEffect(() => {
     refreshPalette();
   }, [currentStyle]);
@@ -62,23 +73,33 @@ export const PalettePage = () => {
 
   // Refresh just one color of the palette.
   const refreshItemColor = async (itemIndex) => {
-    const newColor  = await fetchPaletteColor(currentStyle, currentPalette, itemIndex);
+    const newHexValue  = await fetchPaletteColor(currentStyle, currentPalette, itemIndex);
+    setPaletteColor(itemIndex, newHexValue);
+  };
 
-    // Only update the item with the specified index.
+  // Only update the item with the specified index.
+  const setPaletteColor = (itemIndex, newHexValue) => {
     const newPalette = currentPalette.map((item, index) => (
-      index === itemIndex ? { ...item, hexValue: newColor } : item
+      index === itemIndex ? { ...item, hexValue: newHexValue } : item
     ));
 
     setCurrentPalette(newPalette); 
+  }
+
+  const handleClickPaletteColor = (index, hexValue, boundingRect) => {
+    setPickedColor({ index, hexValue, boundingRect });
+    openColorPicker();
   };
 
-  const openModal = () => setIsModalOpen(true);
-  const closeModal = () => setIsModalOpen(false);
+  const handleColorPickerChange = (hexValue) => {
+    setPickedColor({ ...pickedColor, hexValue });
+    setPaletteColor(pickedColor?.index, hexValue);
+  };
 
   return (
     <div className="palette-page">
-      <div className="randomize-all">
-        <span className="randomize-text">Select style</span>
+      <div className="select-style">
+        <span className="select-style-text">Select style</span>
         <SideButton direction='right' icon={<FaPaintBrush size={24}/>} onClick={() => openModal()}/>
       </div>
 
@@ -86,7 +107,7 @@ export const PalettePage = () => {
       <div className="items">
         {/* Only render those palette items that have an associated item. */}
         {currentPalette.filter(color => color.associatedItem !== '')?.map((color, index) => (
-          <PaletteItem key={index} index={index} color={color} onClickRefresh={refreshItemColor} onClickColor={openColorPicker} />
+          <PaletteItem key={index} index={index} color={color} onClickRefresh={refreshItemColor} onClickColor={handleClickPaletteColor} />
         ))}
       </div>
 
@@ -102,7 +123,8 @@ export const PalettePage = () => {
       </div>
       
       {isModalOpen &&
-        <StylesModal 
+        <StylesModal
+          modalRef={stylesModal}
           title="Choose your style"
           content={STYLE_OPTIONS}
           onClose={closeModal}
@@ -112,8 +134,14 @@ export const PalettePage = () => {
       }
 
       {isColorPickerOpen &&
-        <div className="color-picker" ref={colorPicker}>
-          <HexColorPicker />
+        <div
+          className="color-picker"
+          ref={colorPicker}
+          style={{
+            top: `${pickedColor?.boundingRect.bottom}px`,
+            left: `${pickedColor?.boundingRect.left}px`
+          }}>
+            <HexColorPicker color={pickedColor?.hexValue} onChange={handleColorPickerChange} />
         </div>
       }
     </div>

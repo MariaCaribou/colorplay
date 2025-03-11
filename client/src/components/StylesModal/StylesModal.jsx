@@ -5,6 +5,7 @@ import { IoIosCloseCircleOutline } from "react-icons/io";
 import "./StylesModal.css";
 
 export const StylesModal = ({
+  modalRef,
   title,
   content,
   onClose,
@@ -13,15 +14,15 @@ export const StylesModal = ({
 }) => {
   return (
     <div className="modal-background">
-      <div className="modal">
-      <h3 className="modal-title">{title}</h3>
-      <div className="modal-content">
-        {content?.map(item => 
-          <RadioButton value={item} key={item} onChange={(value) => onSelectStyle(value)} checked={currentStyle === item}/>
-        )}
+      <div className="modal" ref={modalRef}>
+        <h3 className="modal-title">{title}</h3>
+        <div className="modal-content">
+          {content?.map(item => 
+            <RadioButton value={item} key={item} onChange={(value) => onSelectStyle(value)} checked={currentStyle === item}/>
+          )}
+        </div>
+        <button className="modal-button" onClick={onClose}>Close</button>
       </div>
-      <button className="modal-button" onClick={onClose}>Close</button>
-    </div>
     </div>
   )
 };
