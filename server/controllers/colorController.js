@@ -1,7 +1,13 @@
-const colorModel = require('../models/colorModel');
+import { generatePalette, generatePaletteColor } from "../utils/palette.js";
 
-exports.generatePalette = (request, response) => {
-    const { type, count } = request.body;
-    const palette = colorModel.generatePalette(type, count);
+export const getPalette = (request, response) => {
+    const { type } = request.body;
+    const palette = generatePalette(type);
     response.json({ palette });
+}
+
+export const getPaletteColor = (request, response) => {
+  const { type, palette, index } = request.body;
+  const paletteColor = generatePaletteColor(type, palette, index);
+  response.json({ paletteColor });
 }
