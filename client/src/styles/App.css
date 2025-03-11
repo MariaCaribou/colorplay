@@ -1,0 +1,11 @@
+@import "./variables.css";
+
+:root {
+  font-family: var(--primary-font);
+  font-weigth: var(--font-weigth-medium);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}

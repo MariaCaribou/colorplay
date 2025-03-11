@@ -1,0 +1,18 @@
+:root {
+  /* FONTS */
+  --primary-font: Nunito, sans-serif;
+  --font-size-s: 4vw;
+  --font-size-m: 6vw;
+  --font-size-l: 8vw;
+  --font-weigth-light: 200;
+  --font-weigth-medium: 400;
+  --font-weigth-bold: 800;
+
+  --translucid-black: rgba(0, 0, 0, 0.66);
+
+  --border-radius-s: 1rem;
+  --border-radius-m: 1.5rem;
+  --border-radius-l: 2rem;
+
+  --material-shadow-3: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
