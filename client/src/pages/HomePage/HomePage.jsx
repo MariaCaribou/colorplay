@@ -14,7 +14,7 @@ export const HomePage = () => {
   return (
     <div className="main">
       <p className="main__text">Let's find out your colors for today</p>
-      <Button handleOnClick={handleNavigate} hasDynamicColor={true} text={"Start"}/>
+      <Button onClick={handleNavigate} hasDynamicColor={true} text={"Start"}/>
     </div>
   )
 };
