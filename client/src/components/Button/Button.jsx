@@ -4,10 +4,10 @@ import "./Button.css";
 const COLORS = ["color1", "color2", "color3", "color4", "color5"];
 
 export const Button = ({
-  handleOnClick,
   hasDynamicColor = false,
   color,
   text,
+  ...otherProps
 }) => {
   const [buttonColor, setButtonColor] = useState(color ?? COLORS[0]);
 
@@ -23,7 +23,7 @@ export const Button = ({
   };
 
   return (
-    <button className={`button ${buttonColor}`} style={{background: color}} onClick={() => handleOnClick()}>
+    <button className={`button ${buttonColor}`} style={{background: color}} {...otherProps}>
       {text}
     </button>
   )

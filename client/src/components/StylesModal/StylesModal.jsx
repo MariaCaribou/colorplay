@@ -8,21 +8,20 @@ export const StylesModal = ({
   title,
   content,
   onClose,
+  currentStyle,
+  onSelectStyle,
 }) => {
-  const onSubmit = () => {
-    console.log('submited');
-  };
-
   return (
-    <div className="modal">
-      <div className="modal-close" onClick={onClose}><IoIosCloseCircleOutline size={48} /></div>
+    <div className="modal-background">
+      <div className="modal">
       <h3 className="modal-title">{title}</h3>
-      <form className="modal-content" action="">
+      <div className="modal-content">
         {content?.map(item => 
-          <RadioButton value={item} key={item}/>
+          <RadioButton value={item} key={item} onChange={(value) => onSelectStyle(value)} checked={currentStyle === item}/>
         )}
-        <button className="modal-button" onClick={() => onSubmit()}>Accept</button>
-      </form>
+      </div>
+      <button className="modal-button" onClick={onClose}>Close</button>
+    </div>
     </div>
   )
 };

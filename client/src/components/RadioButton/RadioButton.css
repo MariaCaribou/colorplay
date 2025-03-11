@@ -9,10 +9,11 @@
     border: solid 1px black;
     width: 1.5rem;
     height: 1.5rem;
+    cursor: pointer;
   }
 
   .item-text {
     font-size: 1.5rem;
-    font-family: "Inter", serif;
+    text-transform: capitalize;
   }
 }

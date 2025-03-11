@@ -1,64 +1,58 @@
-.randomize-all {
-  display: flex;
-  gap: 1rem;
-  justify-content: right;
-  align-items: center;
-  margin: 2rem;
-
-  .randomize-text {
-    font-size: 1rem;
-    font-weight: bold;
-    letter-spacing: 3px;
-    font-family: "Inter", serif;
-  }
-}
-
-.section-title {
-  margin: 3rem 2rem;
-  font-size: 2rem;
-  font-weight: 500;
-  font-family: "Inter", serif;
-}
-
-.items {
+.palette-page {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-  margin: 3rem 2rem;
-
-  .item-row {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-  
-    .item-color {
-      width: 4rem;
-      height: 3rem;
-      border-radius: 1rem;
-    }
-  
-    .item-text {
-      font-size: 1.5rem;
-      font-family: "Inter", serif;
-    }
-  }
-}
-
-.palette {
-  display: flex;
-  gap: 0.5rem;
-  margin: 2rem;
-
-  .palette-item {
-    width: 3rem;
-    height: 7rem;
-    border-radius: 1rem;
-    background-color: red;
-  }
-}
-
-.button-wrapper {
-  display: flex;
   justify-content: center;
-  margin: 3rem 2rem;
+  gap: 3rem;
+  box-sizing: border-box;
+  width: 100vw;
+  max-width: 30rem;
+  margin: 0 auto;
+  padding: 2rem;
+
+  .randomize-all {
+    display: flex;
+    align-self: flex-end;
+    gap: 1rem;
+    align-items: center;
+  
+    .randomize-text {
+      font-size: 1rem;
+      font-size: clamp(1rem, var(--font-size-s), 2rem);
+      font-weight: var(--font-weigth-bold);
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+  }
+  
+  .section-title {
+    font-size: 2rem;
+    font-size: clamp(2rem, var(--font-size-m), 2.5rem);
+  }
+  
+  .items {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .palette {
+    display: flex;
+    justify-content: space-between;
+  
+    .palette-item {
+      width: 15%;
+      height: 7rem;
+      border-radius: var(--border-radius-s);
+      background-color: red;
+    }
+  }
+  
+  .button-wrapper {
+    display: flex;
+    justify-content: center;
+  }
+
+  .color-picker {
+    position: absolute;
+  }
 }

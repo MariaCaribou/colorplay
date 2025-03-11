@@ -1,16 +1,29 @@
+.modal-background {
+  display: flex;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--translucid-black);
+}
+
 .modal {
   display: flex;
   position: absolute;
-  top: 10rem;
-  left: 2rem;
-  z-index: 10;
-  flex-direction: column;
-  border: solid 1px black;
-  border-radius: 1rem;
-  padding: 2rem;
+  /* top: 10rem;
+  left: 2rem; */
   background-color: white;
-  width: 70%;
-  height: 50%;
+  flex-direction: column;
+  /* border: solid 1px black; */
+  border-radius: var(--border-radius-l);
+  padding: 2rem;
+  width: 66vw;
+  height: 50vh;
+  box-shadow: var(--material-shadow-3);
+  z-index: 10;
 
   .modal-close {
     width: 3rem;
@@ -19,27 +32,26 @@
   }
 
   .modal-title {
-    font-size: 1.5rem;
-    margin: 1rem;
-    font-family: "Inter", serif;
+    font-size: 2rem;
+    font-size: clamp(2rem, var(--font-size-m), 4rem);
+    margin-bottom: 1rem;
   }
 
   .modal-content {
     display: flex;
+    /* align-self: center; */
     margin: 1rem;
     flex-direction: column;
     gap: 1.5rem;
   }
 
   .modal-button {
-    padding: 1rem;
+    position: absolute;
+    bottom: 2.5rem;
+    right: 2.5rem;
     border: none;
-    border-radius: 1rem;
-    color: white;
+    background: none;
     font-size: 1.5rem;
-    background-color: #9381FF;
-    width: 10rem;
-    margin: 2rem auto;
-    font-family: "Inter", serif;
+    font-size: clamp(1.5rem, var(--font-size-s), 2rem);
   }
 }

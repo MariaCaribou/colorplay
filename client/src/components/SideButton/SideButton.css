@@ -1,13 +1,20 @@
 .side-button {
   padding: 0.6rem;
   border: none;
-  background-color: #F2E9E4; // TODO set variable colors
+  background-color: #F2E9E4;
+  cursor: pointer;
 }
 
 .side-button--left {
-  border-radius: 3rem 1rem 1rem 3rem;
+  border-top-left-radius: var(--border-radius-l);
+  border-bottom-left-radius: var(--border-radius-l);
+  border-top-right-radius: var(--border-radius-s);
+  border-bottom-right-radius: var(--border-radius-s);
 }
 
 .side-button--right {
-  border-radius: 1rem 3rem 3rem 1rem;
+  border-top-left-radius: var(--border-radius-s);
+  border-bottom-left-radius: var(--border-radius-s);
+  border-top-right-radius: var(--border-radius-l);
+  border-bottom-right-radius: var(--border-radius-l);
 }
