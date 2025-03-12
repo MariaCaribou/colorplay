@@ -8,6 +8,7 @@
     flex-basis: 4rem;
     height: 3rem;
     border-radius: var(--border-radius-s);
+    cursor: pointer;
   }
 
   .item-text {

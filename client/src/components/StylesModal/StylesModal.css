@@ -48,5 +48,6 @@
     background: none;
     font-size: 1.5rem;
     font-size: clamp(1.5rem, var(--font-size-s), 2rem);
+    cursor: pointer;
   }
 }
