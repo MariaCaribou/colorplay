@@ -2,19 +2,13 @@
   padding: 1.5rem 5rem;
   border: none;
   border-radius: var(--border-radius-l);
-  color: white;
+  color: black;
   font-family: var(--primary-font);
   font-size: 1.5rem;
   font-size: clamp(1.5rem, var(--font-size-s), 2rem);
   font-weight: var(--font-weight-medium);
   letter-spacing: 3px;
-  text-transform: uppercase;
+  text-transform: capitalize;
   transition: background-color 0.5s ease-in-out;
   cursor: pointer;
 }
-
-.color1 { background-color: #e86d5f; } /* Rojo */
-.color2 { background-color: #2ecc71; } /* Verde */
-.color3 { background-color: #f1c40f; } /* Amarillo */
-.color4 { background-color: #9b59b6; } /* Morado */
-.color5 { background-color: #1abc9c; } /* Turquesa */

@@ -2,7 +2,7 @@ import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { SideButton } from '../../components/SideButton/SideButton';
 import { Button } from '../../components/Button/Button';
 import { StylesModal } from '../../components/StylesModal/StylesModal';
-import { FaPaintBrush } from 'react-icons/fa';
+import { RxShadow } from "react-icons/rx";
 
 import './PalettePage.css';
 
@@ -88,7 +88,7 @@ export const PalettePage = () => {
     <div className="palette-page">
       <div className="select-style">
         <span className="select-style-text">Select style</span>
-        <SideButton direction='right' icon={<FaPaintBrush size={24}/>} onClick={() => openModal()}/>
+        <SideButton direction='right' icon={<RxShadow size={24}/>} onClick={() => openModal()}/>
       </div>
 
       <h2 className="section-title">Select by item</h2>
@@ -107,7 +107,7 @@ export const PalettePage = () => {
       </div>
 
       <div className="button-wrapper">
-        <Button color="#9381FF" text="Refresh" onClick={() => refreshPalette()}/>
+        <Button color="#E4D3C8" text="Refresh" onClick={() => refreshPalette()}/>
       </div>
       
       {isModalOpen &&

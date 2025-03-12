@@ -8,6 +8,9 @@
   --font-weight-medium: 400;
   --font-weight-bold: 800;
 
+  --light-gray: #F2E9E4;
+  --mid-gray: #E4D3C8;
+  --dark-gray: #C29A84;
   --translucid-black: rgba(0, 0, 0, 0.66);
 
   --border-radius-s: 1rem;

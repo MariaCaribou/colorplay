@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './Button.css';
 
-const COLORS = ['color1', 'color2', 'color3', 'color4', 'color5'];
+const COLORS = ['#e86d5f', '#2ecc71', '#f1c40f', '#9b59b6', '#1abc9c'];
 
 export const Button = ({
   hasDynamicColor = false,
@@ -15,15 +15,15 @@ export const Button = ({
     if (hasDynamicColor) startDynamicColor();
   }, []);
 
-  // Set a random color from the list every 1.5s.
+  // Set a random color from the list every 1s.
   const startDynamicColor = () => {
     setInterval(() => {
       setButtonColor(COLORS[Math.floor(Math.random() * COLORS.length)]);
-    }, 1500);
+    }, 1000);
   };
 
   return (
-    <button className={`button ${buttonColor}`} style={{background: color}} {...otherProps}>
+    <button className="button" style={{background: buttonColor}} {...otherProps}>
       {text}
     </button>
   )
