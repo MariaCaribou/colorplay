@@ -18,17 +18,17 @@
     .select-style-text {
       font-size: 1rem;
       font-size: clamp(1rem, var(--font-size-s), 2rem);
-      font-weight: var(--font-weigth-bold);
+      font-weight: var(--font-weight-bold);
       letter-spacing: 3px;
       text-transform: uppercase;
-      font-weight: var(--font-weigth-medium);
+      font-weight: var(--font-weight-medium);
     }
   }
   
   .section-title {
     font-size: 2rem;
     font-size: clamp(2rem, var(--font-size-m), 2.5rem);
-    font-weight: var(--font-weigth-medium);
+    font-weight: var(--font-weight-medium);
   }
   
   .items {

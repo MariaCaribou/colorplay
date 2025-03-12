@@ -29,7 +29,7 @@
     font-size: 2rem;
     font-size: clamp(2rem, var(--font-size-m), 4rem);
     margin-bottom: 3.5rem;
-    font-weight: var(--font-weigth-medium);
+    font-weight: var(--font-weight-medium);
   }
 
   .modal-content {
