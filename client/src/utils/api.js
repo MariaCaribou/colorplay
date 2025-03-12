@@ -1,5 +1,7 @@
+const API_URL = 'http://localhost:3001/api/'
+
 const fetchAPI = async(endpoint, body) => {
-  const response = await fetch(`http://localhost:3001/api/${endpoint}`, {
+  const response = await fetch(`${API_URL}${endpoint}`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: body
