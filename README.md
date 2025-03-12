@@ -23,6 +23,7 @@ Here's the current development status of this project:
 - [ ] Desktop version
 - [ ] Lock individual colors
 - [ ] Testing
+- [ ] Live demo
 
 ## Installation
 
