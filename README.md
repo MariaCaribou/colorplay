@@ -9,7 +9,7 @@ Colorplay is a small project inspired by the book *A Dictionary of Color Combina
 - Customize palette by modifying colors individually
 
 ## Screenshots
-<img src="./img/palette-page.png" alt="palette page" width="250"/> <img src="./img/style-selector.png" alt="style selector" width="250"/> <img src="./img/color-picker.png" alt="color picker" width="250"/>  
+<img src="./client/public/palette-page.png" alt="palette page" width="250"/> <img src="./client/public/style-selector.png" alt="style selector" width="250"/> <img src="./client/public/color-picker.png" alt="color picker" width="250"/>  
 
 ## Project Status
 Here's the current development status of this project:
