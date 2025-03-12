@@ -1,35 +1,23 @@
-import React, { useCallback, useEffect, useRef, useState } from "react";
-import { SideButton } from "../../components/SideButton/SideButton";
-import { Button } from "../../components/Button/Button";
-import { StylesModal } from "../../components/StylesModal/StylesModal";
-import { FaPaintBrush } from "react-icons/fa";
+import React, { useCallback, useEffect, useRef, useState } from 'react';
+import { SideButton } from '../../components/SideButton/SideButton';
+import { Button } from '../../components/Button/Button';
+import { StylesModal } from '../../components/StylesModal/StylesModal';
+import { FaPaintBrush } from 'react-icons/fa';
 
-import "./PalettePage.css";
+import './PalettePage.css';
 
-import { fetchPalette, fetchPaletteColor } from "../../utils/api";
-import { PaletteItem } from "../../components/PaletteItem/PaletteItem";
-import { HexColorPicker } from "react-colorful";
-import useClickOutside from "../../utils/useClickOutside";
-
-const STYLE_OPTIONS = ['contrast', 'pastel', 'monochromatic', 'eclectic'];
-const ITEMS = [ 'Top', 'Bottom', 'Shoes', 'Accesories' ];
-const PALETTE_OBJECT = [
-  { hexValue: '#F5F5F5', associatedItem: ITEMS[0], isLocked: false },
-  { hexValue: '#EAEAEA', associatedItem: ITEMS[1], isLocked: false },
-  { hexValue: '#DADADA', associatedItem: ITEMS[2], isLocked: false },
-  { hexValue: '#CFCFCF', associatedItem: ITEMS[3], isLocked: false },
-  { hexValue: '#BFBFBF', associatedItem: '' },
-  { hexValue: '#B0B0B0', associatedItem: '' }
-];
+import { fetchPalette, fetchPaletteColor } from '../../utils/api';
+import { PaletteItem } from '../../components/PaletteItem/PaletteItem';
+import { HexColorPicker } from 'react-colorful';
+import { PALETTE, STYLE_OPTIONS } from '../../utils/constants';
+import useClickOutside from '../../utils/useClickOutside';
 
 export const PalettePage = () => {
-  const [currentPalette, setCurrentPalette] = useState(PALETTE_OBJECT);
+  const [currentPalette, setCurrentPalette] = useState(PALETTE);
   const [currentStyle, setCurrentStyle] = useState(STYLE_OPTIONS[0]);
   const [pickedColor, setPickedColor] = useState({ index: 0, hexValue: "", boundingRect: null });
 
-  // ==================================================
   // Styles modal
-  // ==================================================
   const [isModalOpen, setIsModalOpen] = useState(false);
   const stylesModal = useRef();
 
@@ -38,9 +26,7 @@ export const PalettePage = () => {
 
   useClickOutside(stylesModal, closeModal);
 
-  // ==================================================
   // Color picker
-  // ==================================================
   const [isColorPickerOpen, setIsColorPickerOpen] = useState(false);
   const colorPicker = useRef();
 
@@ -86,11 +72,13 @@ export const PalettePage = () => {
     setCurrentPalette(newPalette); 
   }
 
+  // Callback executed when an item is clicked, opening the color picker.
   const handleClickPaletteColor = (index, hexValue, boundingRect) => {
     setPickedColor({ index, hexValue, boundingRect });
     openColorPicker();
   };
 
+  // Callback executed when a color is picked in the color picker.
   const handleColorPickerChange = (hexValue) => {
     setPickedColor({ ...pickedColor, hexValue });
     setPaletteColor(pickedColor?.index, hexValue);

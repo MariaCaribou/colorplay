@@ -1,8 +1,7 @@
-import React from "react";
-import { RadioButton } from "../RadioButton/RadioButton";
-import { IoIosCloseCircleOutline } from "react-icons/io";
+import React from 'react';
+import { RadioButton } from '../RadioButton/RadioButton';
 
-import "./StylesModal.css";
+import './StylesModal.css';
 
 export const StylesModal = ({
   modalRef,

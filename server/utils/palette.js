@@ -1,7 +1,7 @@
-import { generateContrastColor, generateContrastPalette } from "./contrast.js";
-import { generateEclecticColor, generateEclecticPalette } from "./eclectic.js";
-import { generateMonochromaticColor, generateMonochromaticPalette } from "./monochromatic.js";
-import { generatePastelColor, generatePastelPalette } from "./pastel.js";
+import { generateContrastColor, generateContrastPalette } from './contrast.js';
+import { generateEclecticColor, generateEclecticPalette } from './eclectic.js';
+import { generateMonochromaticColor, generateMonochromaticPalette } from './monochromatic.js';
+import { generatePastelColor, generatePastelPalette } from './pastel.js';
 
 export const generatePalette = (type) => {
   let palette;

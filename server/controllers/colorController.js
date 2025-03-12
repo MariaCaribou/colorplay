@@ -1,4 +1,4 @@
-import { generatePalette, generatePaletteColor } from "../utils/palette.js";
+import { generatePalette, generatePaletteColor } from '../utils/palette.js';
 
 export const getPalette = (request, response) => {
     const { type } = request.body;

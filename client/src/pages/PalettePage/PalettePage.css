@@ -57,7 +57,9 @@
   .color-picker {
     position: absolute;
     width: 60vw;
+    max-width: 20rem;
     height: 60vw;
+    max-height: 20rem;
     border-radius: 9px;
     box-shadow: var(--material-shadow-3);
 

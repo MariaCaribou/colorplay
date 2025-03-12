@@ -1,4 +1,4 @@
-import { hslToHex } from "./color.js";
+import { hslToHex } from './color.js';
 
 export const generateEclecticPalette = () => {
   return Array.from({ length: 6 }, (_, i) => {

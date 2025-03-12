@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 
-import "./SideButton.css";
+import './SideButton.css';
 
 export const SideButton = ({
   direction,

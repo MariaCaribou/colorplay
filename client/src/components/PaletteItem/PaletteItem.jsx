@@ -1,9 +1,9 @@
-import React, { useRef } from "react";
-import { SideButton } from "../SideButton/SideButton";
-import { LuRefreshCw } from "react-icons/lu";
-import { MdLock } from "react-icons/md";
+import React, { useRef } from 'react';
+import { SideButton } from '../SideButton/SideButton';
+import { LuRefreshCw } from 'react-icons/lu';
+import { MdLock } from 'react-icons/md';
 
-import "./PaletteItem.css";
+import './PaletteItem.css';
 
 export const PaletteItem = ({
   index,
