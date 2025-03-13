@@ -21,14 +21,15 @@
   border-radius: var(--border-radius-l);
   padding: 2.5rem 2rem;
   width: 66vw;
-  height: 50vh;
+  height: 60vh;
+  max-height: 25rem;
   box-shadow: var(--material-shadow-3);
   z-index: 10;
 
   .modal-title {
-    font-size: 2rem;
-    font-size: clamp(2rem, var(--font-size-m), 4rem);
-    margin-bottom: 3.5rem;
+    font-size: 1.75rem;
+    font-size: clamp(1.75rem, var(--font-size-m), 4rem);
+    margin-bottom: 3rem;
     font-weight: var(--font-weight-medium);
   }
 
@@ -46,8 +47,8 @@
     right: 2.5rem;
     border: none;
     background: none;
-    font-size: 1.5rem;
-    font-size: clamp(1.5rem, var(--font-size-s), 2rem);
+    font-size: 1.25rem;
+    font-size: clamp(1.25rem, var(--font-size-s), 2rem);
     cursor: pointer;
     color: var(--dark-gray);
   }

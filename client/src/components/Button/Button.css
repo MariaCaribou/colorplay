@@ -4,8 +4,8 @@
   border-radius: var(--border-radius-l);
   color: black;
   font-family: var(--primary-font);
-  font-size: 1.5rem;
-  font-size: clamp(1.5rem, var(--font-size-s), 2rem);
+  font-size: 1.25rem;
+  font-size: clamp(1.25rem, var(--font-size-s), 1.5rem);
   font-weight: var(--font-weight-medium);
   letter-spacing: 3px;
   text-transform: capitalize;
