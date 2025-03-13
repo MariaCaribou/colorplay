@@ -40,9 +40,11 @@ jobs:
           cache-dependency-path: './client/package-lock.json'
       
       - name: Install dependencies
+        working-directory: ./client
         run: npm ci
       
       - name: Build
+        working-directory: ./client
         run: npm run build
       
       - name: Setup Pages
