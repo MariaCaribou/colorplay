@@ -1,7 +1,8 @@
-const API_URL = 'http://localhost:3001/api/'
+import { generatePalette, generatePaletteColor } from "../../../server/utils/palette";
+import { USE_SERVER, SERVER_API_URL } from "../config/config";
 
 const fetchAPI = async(endpoint, body) => {
-  const response = await fetch(`${API_URL}${endpoint}`, {
+  const response = await fetch(`${SERVER_API_URL}${endpoint}`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: body
@@ -12,11 +13,13 @@ const fetchAPI = async(endpoint, body) => {
 }
 
 export const fetchPalette = async (type) => {
-  const { palette } = await fetchAPI('color/getPalette', JSON.stringify({ type }))
-  return palette;
+  return USE_SERVER
+    ? await fetchAPI('color/getPalette', JSON.stringify({ type })).palette
+    : generatePalette(type);
 };
 
 export const fetchPaletteColor = async (type, palette, index) => {
-  const { paletteColor } = await fetchAPI('color/getPaletteColor', JSON.stringify({ type, palette, index }));
-  return paletteColor;
+  return USE_SERVER
+    ? await fetchAPI('color/getPaletteColor', JSON.stringify({ type, palette, index })).paletteColor
+    : generatePaletteColor(type, palette, index);
 }
