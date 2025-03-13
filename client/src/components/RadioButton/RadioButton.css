@@ -14,7 +14,7 @@
 
   .item-text {
     font-size: 1.25rem;
-    font-size: clamp(1.25rem, var(--font-size-s), 2rem);
+    font-size: clamp(1.25rem, var(--font-size-s), 1.5rem);
     text-transform: capitalize;
     cursor: pointer;
   }
