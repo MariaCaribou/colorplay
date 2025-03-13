@@ -13,7 +13,7 @@ const router = createBrowserRouter([
     path: '/palette',
     element: <PalettePage />
   }
-]);
+], { basename: '/colorplay' });
 
 export default function App() {
   return (
