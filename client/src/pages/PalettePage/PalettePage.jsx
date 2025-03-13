@@ -63,6 +63,10 @@ export const PalettePage = () => {
     setPaletteColor(itemIndex, newHexValue);
   };
 
+  // Toggle locking/unlocking a color from the palette.
+  const toggleLockItemColor = (itemIndex) => {
+  };
+
   // Only update the item with the specified index.
   const setPaletteColor = (itemIndex, newHexValue) => {
     const newPalette = currentPalette.map((item, index) => (
@@ -70,7 +74,7 @@ export const PalettePage = () => {
     ));
 
     setCurrentPalette(newPalette); 
-  }
+  };
 
   // Callback executed when an item is clicked, opening the color picker.
   const handleClickPaletteColor = (index, hexValue, boundingRect) => {
@@ -95,7 +99,13 @@ export const PalettePage = () => {
       <div className="items">
         {/* Only render those palette items that have an associated item. */}
         {currentPalette.filter(color => color.associatedItem !== '')?.map((color, index) => (
-          <PaletteItem key={index} index={index} color={color} onClickRefresh={refreshItemColor} onClickColor={handleClickPaletteColor} />
+          <PaletteItem
+            key={index}
+            index={index}
+            color={color}
+            onClickRefresh={refreshItemColor}
+            onClickColor={handleClickPaletteColor}
+            onClickLock={toggleLockItemColor}/>
         ))}
       </div>
 
@@ -126,7 +136,7 @@ export const PalettePage = () => {
           className="color-picker"
           ref={colorPicker}
           style={{
-            top: `${pickedColor?.boundingRect.bottom}px`,
+            top: `${pickedColor?.boundingRect.bottom + window.scrollY}px`,
             left: `${pickedColor?.boundingRect.left}px`
           }}>
             <HexColorPicker color={pickedColor?.hexValue} onChange={handleColorPickerChange} />

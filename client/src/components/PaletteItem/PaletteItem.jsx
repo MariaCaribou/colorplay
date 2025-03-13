@@ -8,11 +8,12 @@ export const PaletteItem = ({
   index,
   color,
   onClickRefresh,
-  onClickColor
+  onClickColor,
+  onClickLock
 }) => {
   const itemColorRef = useRef(null);
 
-  const handleClick = () => {
+  const handleClickColor = () => {
     if (itemColorRef.current) {
       const boundingRect = itemColorRef.current.getBoundingClientRect();
       onClickColor(index, color.hexValue, boundingRect);
@@ -22,8 +23,8 @@ export const PaletteItem = ({
   return (
     <div className="item-row">
       <SideButton direction='left' icon={<RxSymbol size={24} onClick={() => onClickRefresh(index)}/>}/>
-      <div className="item-color" ref={itemColorRef} style={{backgroundColor: color.hexValue}} onClick={handleClick}></div>
-      <SideButton direction='right' icon={<RxLockClosed size={24} />}/>
+      <div className="item-color" ref={itemColorRef} style={{backgroundColor: color.hexValue}} onClick={handleClickColor}></div>
+      <SideButton direction='right' icon={<RxLockClosed size={24} onClick={() => onClickLock(index)}/>}/>
       <span className="item-text">{color.associatedItem}</span>
     </div>
   )
